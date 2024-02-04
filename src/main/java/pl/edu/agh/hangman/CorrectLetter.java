@@ -1,11 +1,13 @@
 package pl.edu.agh.hangman;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.Scanner;
 
 public class CorrectLetter {
-    public static void main(String[] args) {
+    public ArrayList<Integer> checker (String[] args) {
+        ArrayList<Integer> letterIndex = new ArrayList<>();
         String word = "czynność";
         String[] lettersList = word.split("");
 
@@ -14,10 +16,11 @@ public class CorrectLetter {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Podaj literę: ");
         String guess = scanner.nextLine();
-        for (String s : lettersList) {
-            if (Objects.equals(guess, s)) {
-                System.out.println("correct");
+        for (int index = 0; index < lettersList.length; index++) {
+            if (Objects.equals(guess, lettersList[index])) {
+                letterIndex.add(index);
             }
         }
+        return letterIndex;
     }
 }
