@@ -20,4 +20,18 @@ public class WordUtils {
         }
         return dashedWord;
     }
+
+    private List<String> getWords() {
+        WordReader wr = new WordReader();
+        return wr.readFile();
+    }
+
+    public String getWord() {
+        List<String> wordList = getWords();
+         return getRandomWord(wordList);
+    }
+
+    public char[] getDashedWord(String word) {
+        return dashWord(word);
+    }
 }

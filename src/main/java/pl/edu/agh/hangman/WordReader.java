@@ -12,12 +12,10 @@ public class WordReader {
 
     public List<String> readFile() {
         try {
-            int a = 0;
-            BufferedReader reader = new BufferedReader(new FileReader("/home/students/m/j/mjakubow/IdeaProjects/java-hangman/src/main/resources/slowa.txt"));
+            BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/slowa.txt"));
             String wordFromFile = "";
             while ((wordFromFile = reader.readLine()) != null) {
                 wordsList.add(wordFromFile.toLowerCase());
-                a++;
             }
 
         } catch (IOException e) {
