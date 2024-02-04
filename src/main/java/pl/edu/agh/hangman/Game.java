@@ -4,7 +4,6 @@ public class Game {
 
     WordUtils wordUtils = new WordUtils();
 
-
     public void runGame() {
 
         String word = wordUtils.getWord();
@@ -12,6 +11,9 @@ public class Game {
         System.out.println(word);
         System.out.println(dashedWord);
 
-
+        boolean isRunning = true;
+        while (isRunning) {
+            isRunning = false;
+        }
     }
 }
