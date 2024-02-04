@@ -57,14 +57,7 @@ public class Hangman {
     };
 
     public static void main(String[] args) {
-        WordReader wr = new WordReader();
-        WordUtils wordUtils = new WordUtils();
-
-        List<String> wordList = wr.readFile();
-        String randomWord = wordUtils.getRandomWord(wordList);
-        char[] dashedWord = wordUtils.dashWord(randomWord);
-
-        System.out.println(randomWord);
-        System.out.println(dashedWord);
+        Game game = new Game();
+        game.runGame();
     }
 }
