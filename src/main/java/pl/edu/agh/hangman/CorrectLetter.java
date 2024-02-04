@@ -1,12 +1,68 @@
 package pl.edu.agh.hangman;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Objects;
-import java.util.Scanner;
+import java.util.*;
 
 public class CorrectLetter {
-    public ArrayList<Integer> checker (String[] args) {
+    public static ArrayList<Integer> checker() {
+
+        String[] hang = {
+                "  +---+\n" +
+                        "  |   |\n" +
+                        "      |\n" +
+                        "      |\n" +
+                        "      |\n" +
+                        "      |\n" +
+                        "=========",
+                "  +---+\n" +
+                        "  |   |\n" +
+                        "  O   |\n" +
+                        "      |\n" +
+                        "      |\n" +
+                        "      |\n" +
+                        "=========",
+                "  +---+\n" +
+                        "  |   |\n" +
+                        "  O   |\n" +
+                        "  |   |\n" +
+                        "      |\n" +
+                        "      |\n" +
+                        "=========",
+                "  +---+\n" +
+                        "  |   |\n" +
+                        "  O   |\n" +
+                        " /|   |\n" +
+                        "      |\n" +
+                        "      |\n" +
+                        "=========",
+                "  +---+\n" +
+                        "  |   |\n" +
+                        "  O   |\n" +
+                        " /|\\  |\n" +
+                        "      |\n" +
+                        "      |\n" +
+                        "=========",
+                "  +---+\n" +
+                        "  |   |\n" +
+                        "  O   |\n" +
+                        " /|\\  |\n" +
+                        " /    |\n" +
+                        "      |\n" +
+                        "=========",
+                "  +---+\n" +
+                        "  |   |\n" +
+                        "  O   |\n" +
+                        " /|\\  |\n" +
+                        " / \\  |\n" +
+                        "      |\n" +
+                        "========"
+        };
+
+
+        List<String> hangmanList = new ArrayList<String>(Arrays.asList(hang));
+
+        int liczbaZyc = 6;
+
+
         ArrayList<Integer> letterIndex = new ArrayList<>();
         String word = "czynność";
         String[] lettersList = word.split("");
@@ -19,8 +75,16 @@ public class CorrectLetter {
         for (int index = 0; index < lettersList.length; index++) {
             if (Objects.equals(guess, lettersList[index])) {
                 letterIndex.add(index);
+            } else {
+                System.out.println(hangmanList.get(liczbaZyc));
+                liczbaZyc--;
             }
         }
+
         return letterIndex;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(checker());
     }
 }
