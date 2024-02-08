@@ -1,6 +1,8 @@
 package pl.edu.agh.hangman;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 
 public class WordUtils {
@@ -11,14 +13,20 @@ public class WordUtils {
         return wordList.get(randomInt);
     }
 
-    char[] dashWord(String randomWord) {
-        final int wordLength = randomWord.length();
-        final char dash = '_';
-        char[] dashedWord = new char[wordLength];
-        for (int i= 0; i < wordLength;i++) {
-            dashedWord[i] = dash;
-        }
+    String[] dashWord(String randomWord) {
+        String[] dashedWord = new String[randomWord.length()];
+        Arrays.fill(dashedWord, "_");
         return dashedWord;
+    }
+
+    public boolean isTheWordGuessed(String[] array) {
+        boolean condition = true;
+        for (int i = 0; i < array.length; i++) {
+            if (Objects.equals(array[i], "_")) {
+                condition = false;
+            }
+        }
+        return condition;
     }
 
     private List<String> getWords() {
@@ -31,7 +39,7 @@ public class WordUtils {
          return getRandomWord(wordList);
     }
 
-    public char[] getDashedWord(String word) {
+    public String[] getDashedWord(String word) {
         return dashWord(word);
     }
 }
