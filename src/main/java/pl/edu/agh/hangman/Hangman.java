@@ -1,7 +1,5 @@
 package pl.edu.agh.hangman;
 
-import java.util.List;
-
 public class Hangman {
 
     public static final String[] HANGMANPICS = new String[]{
